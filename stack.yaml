@@ -1,0 +1,5 @@
+resolver: lts-12.4
+
+extra-deps:
+- taggy-0.2.1
+- taggy-lens-0.1.2
