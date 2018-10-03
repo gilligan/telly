@@ -10,6 +10,8 @@ import Data.Maybe
 import Test.Tasty.Hspec
 
 import Telly
+import Telly.Weekday
+import Telly.Data
 
 spec_Telly :: Spec
 spec_Telly = do

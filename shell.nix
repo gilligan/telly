@@ -4,16 +4,20 @@ let
 
   inherit (nixpkgs) pkgs;
 
-  f = { mkDerivation, aeson, base, bytestring, lens, split, stdenv
-      , taggy, taggy-lens, tasty, tasty-discover, tasty-hspec, text
+  f = { mkDerivation, aeson, aeson-pretty, base, bytestring, lens
+      , split, stdenv, taggy, taggy-lens, tasty, tasty-discover
+      , tasty-hspec, text
       }:
       mkDerivation {
         pname = "libtelly";
         version = "0.1.0.0";
         src = ./.;
+        isLibrary = true;
+        isExecutable = true;
         libraryHaskellDepends = [
-          aeson base bytestring lens split taggy taggy-lens text
+          aeson aeson-pretty base bytestring lens split taggy taggy-lens text
         ];
+        executableHaskellDepends = [ base text ];
         testHaskellDepends = [
           aeson base bytestring tasty tasty-discover tasty-hspec text
         ];
