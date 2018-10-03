@@ -47,9 +47,9 @@ spec_Telly = do
 
         describe "DayProg" $ do
             it "should deserialize as expected" $ do
-                AE.decode "{\"channels\":[{\"channel\":\"Kids\",\"programming\":[{\"name\":\"disneyclub\",\"timeslot\":\"13:00\"}]}],\"day\":\"Monday\"}" `shouldBe` (Just (DayProg [(ChannelProg "Kids" [TVSlot "disneyclub" "13:00"])] Monday))
+                AE.decode "{\"channels\":[{\"channel\":\"Kids\",\"programming\":[{\"name\":\"disneyclub\",\"timeslot\":\"13:00\"}]}],\"day\":\"Monday\"}" `shouldBe` (Just (DayProg Monday [(ChannelProg "Kids" [TVSlot "disneyclub" "13:00"])]))
             it "should serialize as expected" $ do
-                AE.encode (DayProg [(ChannelProg "Kids" [TVSlot "disneyclub" "13:00"])] Monday) `shouldBe` "{\"channels\":[{\"channel\":\"Kids\",\"programming\":[{\"name\":\"disneyclub\",\"timeslot\":\"13:00\"}]}],\"day\":\"Monday\"}"
+                AE.encode (DayProg Monday [(ChannelProg "Kids" [TVSlot "disneyclub" "13:00"])]) `shouldBe` "{\"channels\":[{\"channel\":\"Kids\",\"programming\":[{\"name\":\"disneyclub\",\"timeslot\":\"13:00\"}]}],\"day\":\"Monday\"}"
 
         describe "sample.json" $ do
             it "can be deserialized" $ do
